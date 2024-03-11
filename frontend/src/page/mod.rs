@@ -1,0 +1,12 @@
+// pub mod contract;
+// pub mod faucet;
+pub mod airdrop;
+pub mod home;
+pub mod model;
+pub mod not_found;
+pub mod pay;
+pub mod presale;
+pub mod subscribe;
+pub mod tab;
+pub mod upload;
+// pub mod ws;

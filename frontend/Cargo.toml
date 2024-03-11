@@ -1,0 +1,110 @@
+[package]
+name = "frontend"
+version = "0.1.0"
+edition = "2021"
+authors = ["Allen <geloves@gmail.com>"]
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+[profile.release]
+# 二进制文件会包含更少的代码
+panic = 'abort'
+# 对所有代码库进行优化(优化更好，构建更慢)
+codegen-units = 1
+# 优化大小(更加激进)
+opt-level = 'z'
+# 优化大小
+# opt-level = 's'
+# 对整个程序进行链接时优化(link time optimization)
+# This makes the compiled code faster and smaller, but it makes compiling slower,
+# so it's only enabled in release mode.
+lto = true
+
+[dependencies]
+# The `console_error_panic_hook` crate provides better debugging of panics by
+# logging them with `console.error`. This is great for development, but requires
+# all the `std::fmt` and `std::panicking` infrastructure, so isn't great for
+# code size when deploying.
+# optional = true 可选的依赖
+console_error_panic_hook = { version = "0.1", optional = true }
+
+# bindings = { path = "bindings", version = "0.0.1" }
+defi-wallet-connect = { path = "../defi-wallet-connect", version = "0.1"  }
+
+aes = "0.8"
+anyhow = "1"
+async-trait = { version = "0.1", default-features = false }
+cbc = { version = "0.1", features = ["alloc"] }
+dashmap = "5"
+hmac = "0.12"
+qrcodegen = "1"
+secrecy = "0.8"
+sha2 = "0.10"
+subtle = "2"
+url = { version = "2", features = ["serde"] }
+zeroize = "1"
+
+base64 = "0.13"
+rust_decimal = { version = "1.26", features = ["maths"] }
+dotenv = "0.15"
+ethers = { version = "0.17", features = ["abigen", "legacy", "rustls", "ws"] }
+# use `eyre` instead of `anyhow` via [#858](https://github.com/gakonst/ethers-rs/pull/858)
+eyre = "0.6"
+futures = "0.3"
+gloo = "0.8"
+gloo-file = "0.2"
+gloo-net = "0.2"
+gloo-utils = { version = "0.1", features = ["serde"] }
+hex = "0.4"
+js-sys = "0.3"
+log = "0.4"
+md5 = "0.7"
+rand = "0.8"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+sha3 = "0.10"
+thiserror = "1"
+# default-features = false 禁用默认功能
+# tokio = { version = "1.21", default-features = false, features = [
+#     "io-util",
+#     "macros",
+#     "rt",
+#     "sync",
+#     "time",
+# ] }
+uuid = { version = "1.2", features = ["serde", "v4", "wasm-bindgen"] }
+wasm-bindgen = { version = "0.2", default-features = false, features = [
+    "spans",
+    "std",
+] }
+wasm-bindgen-futures = "0.4"
+wasm-logger = "0.2"
+web-sys = { version = "0.3", features = [
+    "DomStringMap",
+    "HtmlElement",
+    "HtmlAnchorElement",
+    "File",
+    "DragEvent",
+    "DataTransfer",
+] }
+# 注意暂不支持 wasm 的 feature
+# web3 = { version = "0.18", default-features = false, features = [
+#     "wasm",
+#     "eip-1193",
+#     "signing",
+# ] }
+ws_stream_wasm = { version = "0.7" }
+yew = "0.19"
+yew-agent = "0.1"
+yew-router = "0.16"
+# 用到 wasm 不支持的 udp 连接
+# walletconnect = { git = "https://github.com/radicle-dev/walletconnect-rs", branch = "master", features = [
+#     "qr",
+# ] }
+
+[dev-dependencies]
+tokio-test = "0.4"
+wasm-bindgen-test = "0.3"
+
+[features]
+# 本项目默认启动的功能
+default = ["console_error_panic_hook"]

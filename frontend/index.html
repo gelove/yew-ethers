@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="CoinTools By Rust" />
+    <title>CoinTools</title>
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'>
+        <text y='0.9em' font-size='90'>💎</text>
+      </svg>" />
+    <link rel="stylesheet" href="/main.css" />
+    <link data-trunk rel="copy-dir" href="asset" />
+    <base data-trunk-public-url />
+  </head>
+
+  <!-- <script src="./asset/js/chains.js"></script> -->
+
+  <!-- ESM -->
+  <!-- <script async src="https://cdn.jsdelivr.net/npm/es-module-shims@1.6.1/dist/es-module-shims.min.js"></script>
+  <script type="importmap">
+    {
+      "imports": {
+        "@tauri-apps/api/event": "https://cdn.jsdelivr.net/npm/@tauri-apps/api/event/+esm",
+        "@tauri-apps/api/window": "https://cdn.jsdelivr.net/npm/@tauri-apps/api/window/+esm",
+        "web3modal": "https://cdn.jsdelivr.net/npm/web3modal/+esm",
+        "fortmatic": "https://cdn.jsdelivr.net/npm/fortmatic/+esm",
+        "ethers": "https://cdn.jsdelivr.net/npm/ethers@5.7.1/dist/ethers.esm.min.js",
+        "ethereum-provider": "https://esm.sh/@walletconnect/ethereum-provider?bundle"
+      }
+    }
+  </script> -->
+
+  <!-- UMD -->
+  <!-- <script src="https://cdn.jsdelivr.net/npm/web3modal@1.9.9/dist/index.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/fortmatic@2.4.0/dist/fortmatic.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ethers@5.7.1/dist/ethers.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@walletconnect/ethereum-provider@1.8.0/dist/umd/index.min.js"></script> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.0/dist/sweetalert2.all.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/awesome-qr@2.1.5-rc.0/dist/awesome-qr.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(() => {
+        window.__TAURI__?.invoke("close_splashscreen");
+      }, 1000);
+    });
+  </script>
+</html>

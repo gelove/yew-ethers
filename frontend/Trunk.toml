@@ -1,0 +1,14 @@
+[build]
+target = "index.html"
+dist = "dist"
+
+[serve]
+port = 9000
+
+[[hooks]]
+stage = "build"
+command = "sh"
+command_arguments = [
+    "-c",
+    "tailwindcss build -i tailwind.css -o $TRUNK_STAGING_DIR/main.css",
+]
