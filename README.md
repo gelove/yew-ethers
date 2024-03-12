@@ -1,6 +1,12 @@
 # yew-ethers rust全栈以太坊链上工具
 
-## tauri写web3项目有坑, 已经放弃，做个纪念
+去年写的web3项目
+
+前端[yew](https://yew.rs)， Rust/Wasm framework
+
+后端(相对) [tauri](https://tauri.app)，Rust桌面应用构建框架
+
+有坑已经放弃，留个纪念
 
 ## install tauri
 
